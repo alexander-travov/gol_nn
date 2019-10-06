@@ -18,7 +18,7 @@ of the field.
 
 Then (1,1) convolution layer with num\_channels filters is used.
 
-And finally another (1,1) convolution with 1 output channel gives the probability
+And finally another (1,1) convolution with 1 output channel predicts the probability
 for the cell to be alive in the next state.
 
 ```
@@ -36,6 +36,9 @@ for the cell to be alive in the next state.
            |
     (N, H, W, 1)
 ```
+
+In my tests I could get away with only 5 filters and 7 channels and still get perfect accuracy
+on the test set. That gives you only 100 trainable parameters in the network.
 
 
 Preparing environment
