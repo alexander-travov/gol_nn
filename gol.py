@@ -1,5 +1,5 @@
 """
-Training nueral network to play Conway's Game of Life
+Training neural network to play Conway's Game of Life
 """
 
 import numpy as np
