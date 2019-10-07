@@ -6,15 +6,7 @@ import numpy as np
 import tensorflow as tf
 
 
-# Each cell has 8 neighbours.
-# According to the rules of the game, most interesting things happen,
-# when the number of neighbours is 1-4.
-# I believe this value of alive probability is better than 0.5
-# for dataset generation.
-ALIVE_PROBABILITY = 2.5 / 8
-
-
-def generate_field(shape, alive_prob=ALIVE_PROBABILITY):
+def generate_field(shape, alive_prob=0.5):
     return (np.random.rand(*shape) < alive_prob).astype(np.int32)
 
 
@@ -65,7 +57,7 @@ def pad_field(field):
     return np.pad(field, ((0,0), (1,1), (1,1), (0,0)), mode='wrap')
 
 
-def generate_dataset(num_samples, height, width, alive_prob=ALIVE_PROBABILITY):
+def generate_dataset(num_samples, height, width, alive_prob=0.5):
     """
     Generates dataset with shape (num_samples, height, width, 1) where each
     cell is alive with alive_prob.
@@ -182,7 +174,7 @@ def evaluate_prob_grid(model):
         print('P={:.2f} Loss:{:.2f} Acc:{:.2f}'.format(alive_prob, loss, acc))
 
 
-def print_evolution(height, width, alive_prob=ALIVE_PROBABILITY, epochs=20):
+def print_evolution(height, width, alive_prob=0.5, epochs=20):
     """
     Visualize field evolution for debugging purposes.
     """
