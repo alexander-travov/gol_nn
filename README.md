@@ -64,8 +64,9 @@ Usage
 Script ``gol.py`` trains and tests network for a given field size:
 
 ``` bash
-$ python gol.py HEIGHT WIDTH
-Building model
+$ python gol.py 20 30
+
+Building model:
 Model: "sequential"
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
@@ -81,23 +82,23 @@ Trainable params: 341
 Non-trainable params: 0
 _________________________________________________________________
 
-Training model
+Training model:
 Train on 15000 samples, validate on 3000 samples
 Epoch 1/5
-15000/15000 [==============================] - 5s 314us/sample - loss: 0.5993 - accuracy: 0.6937 - val_loss: 0.4855 - val_accuracy: 0.7484
+15000/15000 [==============================] - 5s 310us/sample - loss: 0.5655 - accuracy: 0.6840 - val_loss: 0.4634 - val_accuracy: 0.7405
 Epoch 2/5
-15000/15000 [==============================] - 4s 265us/sample - loss: 0.2842 - accuracy: 0.9055 - val_loss: 0.1149 - val_accuracy: 1.0000
+15000/15000 [==============================] - 4s 262us/sample - loss: 0.3252 - accuracy: 0.8679 - val_loss: 0.1456 - val_accuracy: 1.0000
 Epoch 3/5
-15000/15000 [==============================] - 4s 262us/sample - loss: 0.0539 - accuracy: 1.0000 - val_loss: 0.0223 - val_accuracy: 1.0000
+15000/15000 [==============================] - 4s 264us/sample - loss: 0.0630 - accuracy: 1.0000 - val_loss: 0.0233 - val_accuracy: 1.0000
 
-Evaluating model
-P=0.10 Loss:0.00 Acc:1.00
-P=0.20 Loss:0.00 Acc:1.00
-P=0.30 Loss:0.00 Acc:1.00
-P=0.40 Loss:0.00 Acc:1.00
-P=0.50 Loss:0.00 Acc:1.00
-P=0.60 Loss:0.00 Acc:1.00
-P=0.70 Loss:0.00 Acc:1.00
-P=0.80 Loss:0.00 Acc:1.00
-P=0.90 Loss:0.00 Acc:1.00
+Evaluating model:
+P_alive=0.1 Loss:0.00 Acc:1.00
+P_alive=0.2 Loss:0.00 Acc:1.00
+P_alive=0.3 Loss:0.01 Acc:1.00
+P_alive=0.4 Loss:0.01 Acc:1.00
+P_alive=0.5 Loss:0.00 Acc:1.00
+P_alive=0.6 Loss:0.00 Acc:1.00
+P_alive=0.7 Loss:0.00 Acc:1.00
+P_alive=0.8 Loss:0.00 Acc:1.00
+P_alive=0.9 Loss:0.00 Acc:1.00
 ```
