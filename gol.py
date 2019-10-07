@@ -80,7 +80,7 @@ def life_nn(
         width,
         num_filters=10,
         num_channels=20,
-        loss='binary_crossentropy',
+        loss='mse',
         optimizer='adam'
     ):
     """
