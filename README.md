@@ -7,19 +7,22 @@ Create, train and test CNN model for perfect prediction in the Game of Life.
 Architecture
 ------------
 
-To prevent errors on border pixels input datasets are wrapped to emulate
-cyclic nature of the field.
+To prevent errors on the border input datasets are wrapped
+to emulate cyclic nature of the game field.
 
 Next state of a cell depends only on its neighbours.
 
-Thats why (3,3) conv filters is a reasonable choice for the first layer.
-For this layer 'valid' padding is used to shrink shape down to the original size
-of the field.
+Thats why 3x3 convolution is a reasonable choice for the first layer.
+``valid`` padding is used for this layer to shrink input shape down
+to the original size of the field.
 
-Then (1,1) convolution layer with num\_channels filters is used.
+Then 1x1 convolution layer with num\_channels of filters is used.
 
-And finally another (1,1) convolution with 1 output channel predicts the probability
-for the cell to be alive in the next state.
+Finally, another 1x1 convolution with 1 output channel after sigmoid nonlinearity
+predicts the probability for the cell to be alive in the next state.
+
+In this architecture every cell is processed in the same way as others
+and only takes into account the receptive field of its 3x3 neighbourhood.
 
 ```
     (N, H+2, W+2, 1)
@@ -37,8 +40,11 @@ for the cell to be alive in the next state.
     (N, H, W, 1)
 ```
 
-In my tests I could get away with only 5 filters and 7 channels and still get perfect accuracy
-on the test set. That gives you only 100 trainable parameters in the network.
+To estimate the inner complexity of the game, one can count total number
+of different 3x3 patterns: 2^9 = 512.
+
+You can get away with only 5 filters and 7 channels for a total of 100 trainable parameters
+and still get perfect accuracy on the test set.
 
 
 Preparing environment
