@@ -142,6 +142,10 @@ def life_nn(
 
 
 def train(model, X_train, y_train, X_val, y_val, batch_size=64, epochs=1):
+    """
+    Trains NN model on train and validation set.
+    Wrap pads input fields to prevent errors on the border.
+    """
     X_train_padded = pad_field(X_train)
     X_val_padded = pad_field(X_val)
     model.fit(X_train_padded, y_train,
@@ -152,6 +156,10 @@ def train(model, X_train, y_train, X_val, y_val, batch_size=64, epochs=1):
 
 
 def evaluate(model, X_test, y_test, batch_size=64):
+    """
+    Evaluates model's loss and accuracy on the test set.
+    Wrap pads input fields before the evaluation.
+    """
     X_test_padded = pad_field(X_test)
     return model.evaluate(
         X_test_padded,
@@ -171,7 +179,7 @@ def evaluate_prob_grid(model):
     for alive_prob in np.linspace(0.1, 0.9, 9): 
         X_test, y_test = generate_dataset(1000, height, width, alive_prob)
         loss, acc = evaluate(model, X_test, y_test)
-        print('P={:.2f} Loss:{:.2f} Acc:{:.2f}'.format(alive_prob, loss, acc))
+        print('P_alive={:.1f} Loss:{:.2f} Acc:{:.2f}'.format(alive_prob, loss, acc))
 
 
 def print_evolution(height, width, alive_prob=0.5, epochs=20):
@@ -198,7 +206,7 @@ if __name__ == '__main__':
     height = int(sys.argv[1])
     width = int(sys.argv[2])
 
-    print('Building model')
+    print('Building model:')
     model = life_nn(height, width)
     model.summary()
     print()
@@ -208,9 +216,9 @@ if __name__ == '__main__':
     X_train, y_train = generate_dataset(num_train_samples, height, width)
     X_val, y_val = generate_dataset(num_val_samples, height, width)
 
-    print('Training model')
+    print('Training model:')
     train(model, X_train, y_train, X_val, y_val, epochs=5)
     print()
 
-    print('Evaluating model')
+    print('Evaluating model:')
     evaluate_prob_grid(model)
