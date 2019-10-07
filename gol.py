@@ -118,7 +118,8 @@ def life_nn(
             padding="valid",
             use_bias=True,
             activation='relu',
-            input_shape=(height+2, width+2) + (1,)
+            input_shape=(height+2, width+2) + (1,),
+            name='conv1_3x3'
         ),
         tf.keras.layers.Conv2D(
             num_channels,
@@ -126,7 +127,8 @@ def life_nn(
             strides=(1, 1),
             padding="same",
             use_bias=True,
-            activation='relu'
+            activation='relu',
+            name='conv2_1x1'
         ),
         tf.keras.layers.Conv2D(
             1,
@@ -134,7 +136,8 @@ def life_nn(
             strides=(1, 1),
             padding="same",
             use_bias=True,
-            activation='sigmoid'
+            activation='sigmoid',
+            name='conv3_1x1'
         )
     ])
     model.compile(loss=loss, optimizer=optimizer, metrics=['accuracy'])
