@@ -7,8 +7,8 @@ Create, train and test CNN model for perfect prediction in the Game of Life.
 Architecture
 ------------
 
-To prevent errors on the border input datasets are wrapped
-to emulate cyclic nature of the game field.
+Input datasets are wrapped to emulate cyclic nature of the game field.
+Without that, you would get errors on the border.
 
 Next state of a cell depends only on its neighbours.
 
@@ -89,10 +89,6 @@ Epoch 2/5
 15000/15000 [==============================] - 4s 265us/sample - loss: 0.2842 - accuracy: 0.9055 - val_loss: 0.1149 - val_accuracy: 1.0000
 Epoch 3/5
 15000/15000 [==============================] - 4s 262us/sample - loss: 0.0539 - accuracy: 1.0000 - val_loss: 0.0223 - val_accuracy: 1.0000
-Epoch 4/5
-15000/15000 [==============================] - 4s 263us/sample - loss: 0.0132 - accuracy: 1.0000 - val_loss: 0.0077 - val_accuracy: 1.0000
-Epoch 5/5
-15000/15000 [==============================] - 4s 263us/sample - loss: 0.0053 - accuracy: 1.0000 - val_loss: 0.0037 - val_accuracy: 1.0000
 
 Evaluating model
 P=0.10 Loss:0.00 Acc:1.00
