@@ -81,7 +81,7 @@ def life_nn(
         num_filters=10,
         num_channels=20,
         loss='mse',
-        optimizer='adam'
+        optimizer=tf.optimizers.Adam(learning_rate=0.01)
     ):
     """
     Create CNN model for the Game of Life.
