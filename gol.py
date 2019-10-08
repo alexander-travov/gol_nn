@@ -214,8 +214,8 @@ if __name__ == '__main__':
     model.summary()
     print()
 
-    num_train_samples = 15000
-    num_val_samples = 3000
+    num_train_samples = 8000
+    num_val_samples = 2000
     X_train, y_train = generate_dataset(num_train_samples, height, width)
     X_val, y_val = generate_dataset(num_val_samples, height, width)
 
