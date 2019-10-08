@@ -220,7 +220,7 @@ if __name__ == '__main__':
     X_val, y_val = generate_dataset(num_val_samples, height, width)
 
     print('Training model:')
-    train(model, X_train, y_train, X_val, y_val, epochs=5)
+    train(model, X_train, y_train, X_val, y_val, epochs=2)
     print()
 
     print('Evaluating model:')
